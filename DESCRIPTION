@@ -1,0 +1,28 @@
+Package: NGSToolKit
+Type: Package
+Title: RNA-Seq Analysis and Genome Visualization Shiny Platform
+Version: 0.1.0
+Authors@R: c(
+    person("Sona", "Charles", email = "sonacharlesicar@gmail.com", role = c("aut", "cre")),
+    person("Febin T", "Nabeel", email = "nabeelfebin@gmail.com", role = "aut")
+  )
+Author: Sona Charles [aut, cre], Febin T Nabeel [aut]
+Maintainer: Sona Charles <sonacharlesicar@gmail.com>
+Description: Interactive Shiny web application for comprehensive RNA-Seq data 
+    analysis, quality control, differential expression analysis with 'DESeq2', 
+    dimensionality reduction (PCA, t-SNE, UMAP), clustering, and integrated 
+    'JBrowse 2' genome visualization.
+License: GPL-3
+Encoding: UTF-8
+Depends: R (>= 4.0.0)
+Imports: shiny (>= 1.7.0), shinydashboard (>= 0.7.0), shinyjs (>=
+        2.1.0), shinycssloaders (>= 1.0.0), DT (>= 0.20), ggplot2 (>=
+        3.3.0), DESeq2, SummarizedExperiment, uwot, Rtsne, pheatmap,
+        reshape2, Rsamtools, tools, jsonlite, utils, stats, graphics,
+        grDevices
+Additional_repositories: https://bioconductor.org/packages/3.19/bioc
+URL: https://github.com/bigfacilityiisr/NGS-Tool-Kit
+BugReports: https://github.com/bigfacilityiisr/NGS-Tool-Kit/issues
+Config/roxygen2/version: 8.0.0
+NeedsCompilation: no
+
