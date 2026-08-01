@@ -1,9 +1,11 @@
-#===========================================================
+﻿#===========================================================
 # jbrowse_module.R
 # NGS Tool Kit v2.0
 # Genome Browser Module
 #===========================================================
-
+# library(shiny)
+# library(shinydashboard)
+# library(shinyjs)
 
 #===========================================================
 # UI
@@ -228,6 +230,12 @@ jbrowseServer <- function(id, analysis){
       
     )
     
+    userSessions <- reactiveVal(
+      
+      character(0)
+      
+    )
+    
     currentGenome <- reactiveVal(
       
       NULL
@@ -319,6 +327,9 @@ jbrowseServer <- function(id, analysis){
         
         cleanupSessionFolder(info$path)
         
+        # Remove from tracked sessions
+        userSessions(setdiff(userSessions(), info$path))
+        
       }
       
       browserURL(DEFAULT_BROWSER_PAGE)
@@ -397,15 +408,28 @@ jbrowseServer <- function(id, analysis){
         
         
         #---------------------------------------------------
+        # Clean Up Previous Session If Active
+        #---------------------------------------------------
+        oldInfo <- currentSession()
+        if(!is.null(oldInfo)){
+          cleanupSessionFolder(oldInfo$path)
+          userSessions(setdiff(userSessions(), oldInfo$path))
+        }
+
+        #---------------------------------------------------
         # Create Session
         #---------------------------------------------------
         
         sessionInfo <- createSessionFolder(
-          USER_DATA_FOLDER
+          get_user_data_folder()
         )
         
         currentSession(
           sessionInfo
+        )
+        
+        userSessions(
+          c(userSessions(), sessionInfo$path)
         )
         
         writeLog(
@@ -633,19 +657,21 @@ jbrowseServer <- function(id, analysis){
       
       isolate({
         
+        all_paths <- userSessions()
         info <- currentSession()
         
-        if (!is.null(info)) {
-          
-          writeLog(
-            paste("Cleaning session:", info$id)
-          )
-          
-          cleanupSessionFolder(info$path)
-          
+        if (!is.null(info) && !is.null(info$path) && !info$path %in% all_paths) {
+          all_paths <- c(all_paths, info$path)
         }
         
-        writeLog("JBrowse session closed.")
+        for (p in all_paths) {
+          if (!is.null(p) && nzchar(p)) {
+            writeLog(paste("Cleaning session path:", p))
+            cleanupSessionFolder(p)
+          }
+        }
+        
+        writeLog("JBrowse user session ended and cleaned up.")
         
       })
       

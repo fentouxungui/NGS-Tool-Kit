@@ -1,0 +1,51 @@
+{
+  "assemblies": [
+    {
+      "name": "GCF_044706935.1_ITB_CL_G26_1.1_genomic.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_044706935.1_ITB_CL_G26_1.1_genomic.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "user_data/GCF_044706935.1_ITB_CL_G26_1.1_genomic.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "user_data/GCF_044706935.1_ITB_CL_G26_1.1_genomic.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "New Session"
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "annotation",
+      "name": "Annotation",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "user_data/genomic.sorted.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "user_data/genomic.sorted.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "GCF_044706935.1_ITB_CL_G26_1.1_genomic.fna"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-pcaUI <- function(id) {
+﻿pcaUI <- function(id) {
   ns <- NS(id)
   tagList(
     

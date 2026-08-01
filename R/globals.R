@@ -1,4 +1,4 @@
-#' Imports and Global Variables
+﻿#' Imports and Global Variables
 #'
 #' @import shiny
 #' @import shinydashboard
@@ -26,3 +26,4 @@ if (getRversion() >= "2.15.1") {
     "pvalue", "padj", "baseMean", "value", "variable"
   ))
 }
+

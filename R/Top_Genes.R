@@ -1,3 +1,5 @@
+﻿# library(shiny)
+# library(DT)
 
 # =========================
 # UI
@@ -32,7 +34,7 @@ topgenesUI <- function(id) {
       tableOutput(ns("sample_table")),
       
       h4("Sample Output"),
-      tableOutput(ns("demoTable")),   # ? FIXED
+      tableOutput(ns("demoTable")),   #  FIXED
       
       hr()
     ),
@@ -75,7 +77,7 @@ topgenesUI <- function(id) {
 # =========================
 topgenesServer <- function(id, analysis) {
   moduleServer(id, function(input, output, session) {
-    
+# library(DT)
     
     # =========================
     # SAMPLE DATA

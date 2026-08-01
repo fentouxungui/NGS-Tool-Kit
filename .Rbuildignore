@@ -5,3 +5,7 @@
 ^\.gitignore$
 ^.*\.Rcheck$
 ^inst/app/www/jbrowse/config_old\.json$
+
+^jbrowse\.log$
+^visitor_count\.txt$
+^www$

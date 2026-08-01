@@ -1,4 +1,4 @@
-#===========================================================
+﻿#===========================================================
 # jbrowse_validation.R
 # Validation utilities for NGS Tool Kit
 #===========================================================
@@ -94,3 +94,4 @@ countGenomeStats <- function(fasta_file,gff_file){
     exons=sum(types=="exon")
   )
 }
+

@@ -1,4 +1,4 @@
-clusterUI <- function(id) {
+﻿clusterUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -14,7 +14,7 @@ clusterUI <- function(id) {
       h4("Required Inputs"),
       tags$ul(
         tags$li("Normalized expression matrix (VST) or uploaded CSV"),
-        tags$li("Genes ? Samples format")
+        tags$li("Genes  Samples format")
       ),
       
       h4("How to use"),

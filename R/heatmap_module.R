@@ -1,4 +1,4 @@
-heatmapUI <- function(id) {
+﻿heatmapUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -44,7 +44,7 @@ heatmapUI <- function(id) {
     
     checkboxInput(ns("annot"), "Show metadata annotation", TRUE),
     
-    actionButton(ns("run"), "Generate Heatmap"),   # ? added
+    actionButton(ns("run"), "Generate Heatmap"),   #  added
     
     plotOutput(ns("heatmapPlot"), height = "600px"),
     
@@ -53,7 +53,7 @@ heatmapUI <- function(id) {
 }
 heatmapServer <- function(id, analysis) {
   moduleServer(id, function(input, output, session) {
-    
+# library(pheatmap)
     
     # =========================
     # SAMPLE DATA

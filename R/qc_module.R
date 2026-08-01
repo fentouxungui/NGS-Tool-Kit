@@ -1,4 +1,4 @@
-qcUI <- function(id) {
+﻿qcUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -13,7 +13,7 @@ qcUI <- function(id) {
       
       h4("Required Inputs"),
       tags$ul(
-        tags$li("Count matrix (genes ? samples)"),
+        tags$li("Count matrix (genes  samples)"),
         tags$li("First column: gene names"),
         tags$li("Remaining columns: numeric counts")
       ),

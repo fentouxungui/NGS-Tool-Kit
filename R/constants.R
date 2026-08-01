@@ -1,4 +1,4 @@
-#===========================================================
+﻿#===========================================================
 # constants.R
 # Global constants used throughout the JBrowse subsystem
 #===========================================================
@@ -55,21 +55,15 @@ REQUIRED_TOOLS <- c(
 # JBrowse
 #-----------------------------------------------------------
 
-JBROWSE_ROOT <- file.path(
-  
-  "www",
-  
-  "jbrowse"
-  
-)
+get_jbrowse_root <- function() {
+  path <- system.file("www/jbrowse", package = "NGSToolKit")
+  if (path == "") path <- file.path("www", "jbrowse")
+  path
+}
 
-USER_DATA_FOLDER <- file.path(
-  
-  JBROWSE_ROOT,
-  
-  "user_data"
-  
-)
+get_user_data_folder <- function() {
+  file.path(get_jbrowse_root(), "user_data")
+}
 
 DEFAULT_BROWSER_PAGE <- "jbrowse/index.html"
 

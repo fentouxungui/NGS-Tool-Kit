@@ -1,4 +1,4 @@
-maUI <- function(id) {
+﻿maUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -128,7 +128,7 @@ maServer <- function(id, analysis) {
         return(df)
       }
       
-      return(NULL)   # ? NO sample_data here
+      return(NULL)   #  NO sample_data here
     })
     
     # =========================

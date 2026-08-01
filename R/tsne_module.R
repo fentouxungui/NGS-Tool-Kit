@@ -1,4 +1,4 @@
-tsneUI <- function(id) {
+﻿tsneUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -14,7 +14,7 @@ tsneUI <- function(id) {
       h4("Required Inputs"),
       tags$ul(
         tags$li("Normalized data (VST) OR expression matrix"),
-        tags$li("Genes ? Samples format")
+        tags$li("Genes  Samples format")
       ),
       
       h4("Steps"),
@@ -53,7 +53,8 @@ tsneUI <- function(id) {
 }
 tsneServer <- function(id, analysis) {
   moduleServer(id, function(input, output, session) {
-    
+# library(Rtsne)
+# library(SummarizedExperiment)
     
     status_msg <- reactiveVal("Idle")
     

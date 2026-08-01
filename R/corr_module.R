@@ -1,4 +1,4 @@
-corrUI <- function(id) {
+﻿corrUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -52,7 +52,7 @@ corrUI <- function(id) {
       )
     ),
     
-    actionButton(ns("run"), "Generate Correlation"),   # ? added
+    actionButton(ns("run"), "Generate Correlation"),   #  added
     
     withSpinner(
       plotOutput(ns("corrPlot"), height = "600px")
@@ -124,7 +124,7 @@ corrUI <- function(id) {
 }
 corrServer <- function(id, analysis) {
   moduleServer(id, function(input, output, session) {
-    
+# library(pheatmap)
     
     # =========================
     # SAMPLE DATA

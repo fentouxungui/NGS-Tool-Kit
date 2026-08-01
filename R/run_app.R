@@ -1,4 +1,4 @@
-#' Run the NGS Tool Kit Shiny Application
+﻿#' Run the NGS Tool Kit Shiny Application
 #'
 #' Launches the interactive Shiny web application for RNA-Seq data analysis,
 #' differential expression, clustering, and genome visualization.
@@ -20,6 +20,18 @@ run_ngs_toolkit <- function(launch.browser = TRUE, port = NULL, host = "127.0.0.
 
   # Verify or initialize local JBrowse storage
   setup_jbrowse()
+  
+  # Purge orphan/stale session folders and loose files on startup
+  try(cleanupStaleSessions(get_user_data_folder(), max_age_hours = 2), silent = TRUE)
+
+  # Map the JBrowse resource path so Shiny can serve the static files
+  jbrowse_path <- system.file("www/jbrowse", package = "NGSToolKit")
+  if (jbrowse_path == "") {
+    jbrowse_path <- file.path(getwd(), "www", "jbrowse")
+  }
+  if (dir.exists(jbrowse_path)) {
+    shiny::addResourcePath("jbrowse", jbrowse_path)
+  }
 
   app_ui_obj <- app_ui()
   app_server_obj <- app_server
@@ -47,4 +59,5 @@ run_ngs_toolkit <- function(launch.browser = TRUE, port = NULL, host = "127.0.0.
 run_app <- function(launch.browser = TRUE, port = NULL, host = "127.0.0.1") {
   run_ngs_toolkit(launch.browser = launch.browser, port = port, host = host)
 }
+
 

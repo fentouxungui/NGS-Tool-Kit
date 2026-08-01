@@ -1,0 +1,103 @@
+[2026-07-31 21:42:35] Genome loading started.
+[2026-07-31 21:42:35] Session: 20260731_214235_PkAt9jeC
+[2026-07-31 21:42:35] Uploaded files copied.
+[2026-07-31 21:42:35] Preparing genome...
+[2026-07-31 21:42:35] ==========================================
+[2026-07-31 21:42:35] Genome Preparation Started
+[2026-07-31 21:42:35] ==========================================
+[2026-07-31 21:42:36] FASTA standardized to: genome.fasta
+[2026-07-31 21:42:36] GFF standardized to: annotation.gff
+[2026-07-31 21:42:36] Files standardized.
+[2026-07-31 21:42:36] Generating FASTA index: genome.fasta
+[2026-07-31 21:42:37] FASTA indexing completed.
+[2026-07-31 21:42:37] Sorting GFF: annotation.gff
+[2026-07-31 21:42:39] GFF sorting completed.
+[2026-07-31 21:42:39] Compressing GFF: annotation.sorted.gff
+[2026-07-31 21:42:41] GFF compression completed.
+[2026-07-31 21:42:42] Creating Tabix index: annotation.gff.gz
+[2026-07-31 21:42:42] Tabix indexing completed.
+[2026-07-31 21:42:42] Configuration generated.
+[2026-07-31 21:42:42] Genome preparation completed successfully.
+[2026-07-31 21:42:42] ==========================================
+[2026-07-31 21:42:42] Genome loaded successfully.
+[2026-07-31 21:42:42] Genome loaded: genome.fasta
+[2026-07-31 21:44:18] Cleaning session: 20260731_214235_PkAt9jeC
+[2026-07-31 21:44:18] JBrowse session closed.
+[2026-07-31 23:01:05] JBrowse session closed.
+[2026-08-01 00:04:16] JBrowse session closed.
+[2026-08-01 00:09:28] Genome loading started.
+[2026-08-01 00:09:28] Session: 20260801_000928_DJNn2Rq1
+[2026-08-01 00:09:28] Uploaded files copied.
+[2026-08-01 00:09:28] Preparing genome...
+[2026-08-01 00:09:28] ==========================================
+[2026-08-01 00:09:28] Genome Preparation Started
+[2026-08-01 00:09:28] ==========================================
+[2026-08-01 00:09:29] FASTA standardized to: genome.fasta
+[2026-08-01 00:09:29] GFF standardized to: annotation.gff
+[2026-08-01 00:09:29] Files standardized.
+[2026-08-01 00:09:29] Generating FASTA index: genome.fasta
+[2026-08-01 00:09:31] FASTA indexing completed.
+[2026-08-01 00:09:31] Sorting GFF: annotation.gff
+[2026-08-01 00:09:35] GFF sorting completed.
+[2026-08-01 00:09:35] Compressing GFF: annotation.sorted.gff
+[2026-08-01 00:09:36] GFF compression completed.
+[2026-08-01 00:09:36] Creating Tabix index: annotation.gff.gz
+[2026-08-01 00:09:36] Tabix indexing completed.
+[2026-08-01 00:09:36] Configuration generated.
+[2026-08-01 00:09:36] Genome preparation completed successfully.
+[2026-08-01 00:09:36] ==========================================
+[2026-08-01 00:09:36] Genome loaded successfully.
+[2026-08-01 00:09:36] Genome loaded: genome.fasta
+[2026-08-01 00:11:07] Cleaning session: 20260801_000928_DJNn2Rq1
+[2026-08-01 00:11:07] JBrowse session closed.
+[2026-08-01 07:28:19] JBrowse session closed.
+[2026-08-01 07:35:25] Genome loading started.
+[2026-08-01 07:35:25] Session: 20260801_073525_QKZn1yzA
+[2026-08-01 07:35:25] Uploaded files copied.
+[2026-08-01 07:35:25] Preparing genome...
+[2026-08-01 07:35:25] ==========================================
+[2026-08-01 07:35:25] Genome Preparation Started
+[2026-08-01 07:35:25] ==========================================
+[2026-08-01 07:35:26] FASTA standardized to: genome.fasta
+[2026-08-01 07:35:26] GFF standardized to: annotation.gff
+[2026-08-01 07:35:26] Files standardized.
+[2026-08-01 07:35:26] Generating FASTA index: genome.fasta
+[2026-08-01 07:35:28] FASTA indexing completed.
+[2026-08-01 07:35:28] Sorting GFF: annotation.gff
+[2026-08-01 07:35:33] GFF sorting completed.
+[2026-08-01 07:35:33] Compressing GFF: annotation.sorted.gff
+[2026-08-01 07:35:34] GFF compression completed.
+[2026-08-01 07:35:34] Creating Tabix index: annotation.gff.gz
+[2026-08-01 07:35:34] Tabix indexing completed.
+[2026-08-01 07:35:34] Configuration generated.
+[2026-08-01 07:35:34] Genome preparation completed successfully.
+[2026-08-01 07:35:34] ==========================================
+[2026-08-01 07:35:34] Genome loaded successfully.
+[2026-08-01 07:35:34] Genome loaded: genome.fasta
+[2026-08-01 07:36:43] Cleaning session path: C:/Users/Febin T Nabeel/Downloads/NGSToolKit/www/jbrowse/user_data/20260801_073525_QKZn1yzA
+[2026-08-01 07:36:43] JBrowse user session ended and cleaned up.
+[2026-08-01 07:42:08] Genome loading started.
+[2026-08-01 07:42:08] Session: 20260801_074208_eYA4B4iC
+[2026-08-01 07:42:09] Uploaded files copied.
+[2026-08-01 07:42:09] Preparing genome...
+[2026-08-01 07:42:09] ==========================================
+[2026-08-01 07:42:09] Genome Preparation Started
+[2026-08-01 07:42:09] ==========================================
+[2026-08-01 07:42:10] FASTA standardized to: genome.fasta
+[2026-08-01 07:42:10] GFF standardized to: annotation.gff
+[2026-08-01 07:42:10] Files standardized.
+[2026-08-01 07:42:10] Generating FASTA index: genome.fasta
+[2026-08-01 07:42:11] FASTA indexing completed.
+[2026-08-01 07:42:11] Sorting GFF: annotation.gff
+[2026-08-01 07:42:16] GFF sorting completed.
+[2026-08-01 07:42:16] Compressing GFF: annotation.sorted.gff
+[2026-08-01 07:42:17] GFF compression completed.
+[2026-08-01 07:42:18] Creating Tabix index: annotation.gff.gz
+[2026-08-01 07:42:18] Tabix indexing completed.
+[2026-08-01 07:42:18] Configuration generated.
+[2026-08-01 07:42:18] Genome preparation completed successfully.
+[2026-08-01 07:42:18] ==========================================
+[2026-08-01 07:42:18] Genome loaded successfully.
+[2026-08-01 07:42:18] Genome loaded: genome.fasta
+[2026-08-01 07:43:08] Cleaning session path: C:/Users/Febin T Nabeel/Downloads/NGSToolKit/inst/www/jbrowse/user_data/20260801_074208_eYA4B4iC
+[2026-08-01 07:43:09] JBrowse user session ended and cleaned up.

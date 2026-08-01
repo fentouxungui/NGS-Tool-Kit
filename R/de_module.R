@@ -1,4 +1,4 @@
-deUI <- function(id) {
+﻿deUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -52,7 +52,7 @@ deUI <- function(id) {
 }
 deServer <- function(id, analysis) {
   moduleServer(id, function(input, output, session) {
-    
+# library(DESeq2)
     
     # =========================
     # SAMPLE DATA

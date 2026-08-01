@@ -1,4 +1,4 @@
-umapUI <- function(id) {
+﻿umapUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -47,7 +47,7 @@ umapUI <- function(id) {
 }
 umapServer <- function(id, analysis) {
   moduleServer(id, function(input, output, session) {
-    
+# library(uwot)
     
     status_msg <- reactiveVal("Idle")
     
@@ -298,3 +298,4 @@ umapServer <- function(id, analysis) {
     
   })
 }
+

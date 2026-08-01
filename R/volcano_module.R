@@ -1,4 +1,4 @@
-volcanoUI <- function(id) {
+﻿volcanoUI <- function(id) {
   ns <- NS(id)
   tagList(
     

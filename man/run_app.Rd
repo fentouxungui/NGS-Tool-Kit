@@ -20,7 +20,7 @@ Launches the Shiny application.
 Run the NGS Tool Kit Application (Alias)
 }
 \examples{
-\dontrun{
+if (interactive()) {
   run_app()
 }
 }

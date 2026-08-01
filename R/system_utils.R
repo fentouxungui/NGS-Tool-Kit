@@ -1,4 +1,4 @@
-#===========================================================
+﻿#===========================================================
 # system_utils.R
 # Utility functions for WSL execution, logging, and session
 # management used by the JBrowse module.
@@ -131,23 +131,110 @@ createSessionFolder <- function(base_dir) {
 }
 
 #-----------------------------------------------------------
-# Delete session directory
+# Delete session directory or file safely
 #-----------------------------------------------------------
 cleanupSessionFolder <- function(path) {
+  
+  if (is.null(path) || !nzchar(path)) return(invisible(FALSE))
+  
+  # Trigger garbage collection to release open handles (e.g. Rsamtools/Tabix)
+  suppressWarnings(gc(verbose = FALSE))
   
   if (dir.exists(path)) {
     
     unlink(
-      
       path,
-      
       recursive = TRUE,
-      
       force = TRUE
+    )
+    
+    if (dir.exists(path) && .Platform$OS.type == "windows") {
+      target <- chartr("/", "\\", normalizePath(path, mustWork = FALSE))
+      system(paste('cmd /c rmdir /s /q', shQuote(target)), ignore.stdout = TRUE, ignore.stderr = TRUE)
+    }
+    
+  } else if (file.exists(path)) {
+    
+    unlink(
+      path,
+      force = TRUE
+    )
+    
+    if (file.exists(path) && .Platform$OS.type == "windows") {
+      target <- chartr("/", "\\", normalizePath(path, mustWork = FALSE))
+      system(paste('cmd /c del /f /q /a', shQuote(target)), ignore.stdout = TRUE, ignore.stderr = TRUE)
+    }
+    
+  }
+  
+  invisible(!dir.exists(path) && !file.exists(path))
+  
+}
+
+#-----------------------------------------------------------
+# Clean up stale/orphan sessions and loose files in user_data
+#-----------------------------------------------------------
+cleanupStaleSessions <- function(base_dir, max_age_hours = 2) {
+  
+  if (missing(base_dir) || is.null(base_dir) || !dir.exists(base_dir)) {
+    return(invisible(0))
+  }
+  
+  # Force garbage collection to free file locks
+  suppressWarnings(gc(verbose = FALSE))
+  
+  items <- list.files(base_dir, full.names = TRUE, include.dirs = TRUE)
+  
+  if (length(items) == 0) return(invisible(0))
+  
+  cleaned_count <- 0
+  now <- Sys.time()
+  
+  for (item in items) {
+    
+    # Loose files directly in user_data folder (not subdirectories)
+    if (!dir.exists(item)) {
+      if (cleanupSessionFolder(item)) {
+        cleaned_count <- cleaned_count + 1
+      }
+      next
+    }
+    
+    # Session directories - try parsing session folder timestamp format (YYYYMMDD_HHMMSS)
+    folder_name <- basename(item)
+    ts_str <- substr(folder_name, 1, 15)
+    folder_time <- suppressWarnings(as.POSIXct(strptime(ts_str, "%Y%m%d_%H%M%S", tz = Sys.timezone())))
+    
+    if (is.na(folder_time)) {
+      info <- file.info(item)
+      folder_time <- as.POSIXct(info$ctime)
+    }
+    
+    if (!is.na(folder_time)) {
       
+      age_hours <- as.numeric(difftime(now, folder_time, units = "hours"))
+      
+      if (!is.na(age_hours) && age_hours >= max_age_hours) {
+        
+        if (cleanupSessionFolder(item)) {
+          cleaned_count <- cleaned_count + 1
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  if (cleaned_count > 0 && exists("writeLog", mode = "function")) {
+    
+    writeLog(
+      sprintf("Cleaned %d stale session items from %s", cleaned_count, base_dir)
     )
     
   }
+  
+  invisible(cleaned_count)
   
 }
 
@@ -289,5 +376,32 @@ systemSummary <- function() {
     WSL = checkSystemRequirements()
     
   )
+  
+}
+
+#-----------------------------------------------------------
+# Persistent Visitor Counter
+#-----------------------------------------------------------
+get_and_increment_visitor_count <- function(file = "visitor_count.txt") {
+  
+  count <- 0
+  
+  if (file.exists(file)) {
+    
+    val <- suppressWarnings(as.integer(readLines(file, warn = FALSE)[1]))
+    
+    if (!is.na(val) && val >= 0) count <- val
+    
+  }
+  
+  count <- count + 1
+  
+  tryCatch({
+    
+    writeLines(as.character(count), file)
+    
+  }, error = function(e) NULL)
+  
+  return(count)
   
 }

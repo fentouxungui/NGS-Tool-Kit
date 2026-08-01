@@ -1,4 +1,4 @@
-geneUI <- function(id) {
+﻿geneUI <- function(id) {
   ns <- NS(id)
   tagList(
     
@@ -14,7 +14,7 @@ geneUI <- function(id) {
       h4("Required Inputs"),
       tags$ul(
         tags$li("Normalized expression data (VST) from DESeq2 OR"),
-        tags$li("User-uploaded expression matrix (genes ? samples)"),
+        tags$li("User-uploaded expression matrix (genes  samples)"),
         tags$li("Optional metadata with 'condition' column for coloring")
       ),
       
@@ -78,6 +78,8 @@ GeneB,50,60,20"
 }
 geneServer <- function(id, analysis) {
   moduleServer(id, function(input, output, session) {
+# library(ggplot2)
+# library(reshape2)
     
     # =========================
     # SAMPLE DATA

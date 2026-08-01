@@ -1,4 +1,4 @@
-#===========================================================
+﻿#===========================================================
 # jbrowse_config.R
 # Create JBrowse configuration for a prepared genome
 #===========================================================
@@ -128,3 +128,4 @@ generateConfig <- function(output_dir,
 
   writeConfig(cfg, output_dir)
 }
+

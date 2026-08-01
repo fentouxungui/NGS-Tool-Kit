@@ -21,7 +21,7 @@ Launches the interactive Shiny web application for RNA-Seq data analysis,
 differential expression, clustering, and genome visualization.
 }
 \examples{
-\dontrun{
+if (interactive()) {
   run_ngs_toolkit()
 }
 }
